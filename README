@@ -1,5 +1,4 @@
-A port of the AMS internal modules to LV2 plugins.
+midimsg.lv2
+===========
 
-It provides VCOs, LFOs, Filters and other modules controlled using Voltage Controls.
-
-They are designed especially to be used with Ingen to create Modular Synths.
+A collection of basic lv2 plugins to translate midi messages to usable values.
