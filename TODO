@@ -1,0 +1,9 @@
+TO-DO LIST:
+- Better DownSampler (X out of Y samples)
+- DownSampler - Add a Low Pass
+- Beat Slicer -> Randomize size of slice
+- Beat Slicer/Beat Repeater -> Make one plugin out of the two?
+- BUG FIX: Beat Slicer/Repeater tend to crash if parameters are changed while repeating/slicing
+- Group controls in metadata where possible
+
+

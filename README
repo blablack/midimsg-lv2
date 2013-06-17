@@ -1,0 +1,5 @@
+A port of the AMS internal modules to LV2 plugins.
+
+It provides VCOs, LFOs, Filters and other modules controlled using Voltage Controls.
+
+They are designed especially to be used with Ingen to create Modular Synths.

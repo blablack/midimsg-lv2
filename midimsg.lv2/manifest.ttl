@@ -1,0 +1,23 @@
+@prefix doap: 	<http://usefulinc.com/ns/doap#> .
+@prefix foaf: 	<http://xmlns.com/foaf/0.1/> .
+@prefix lv2: 	<http://lv2plug.in/ns/lv2core#> .
+@prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
+
+<http://avwlv2.sourceforge.net/plugins/avw/>
+	a doap:Project ;
+	lv2:symbol "avw" ;
+	doap:name "Midi Messages LV2" ;
+	doap:shortdesc "An LV2 port of the AMS internal modules." ;
+	doap:homepage <http://avwlv2.sourceforge.net/> ;
+	doap:license <http://opensource.org/licenses/isc> ;
+	doap:maintainer [
+		foaf:name "Aurélien Leblond" ;
+		foaf:mbox <mailto:blablack@gmail.com>
+	] .
+
+<http://avwlv2.sourceforge.net/plugins/avw/controller>
+	a lv2:Plugin ;
+	lv2:binary <controller.so>  ;
+	rdfs:seeAlso <controller.ttl> .
+
+
