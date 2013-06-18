@@ -19,5 +19,11 @@
 	a lv2:Plugin ;
 	lv2:binary <controller.so>  ;
 	rdfs:seeAlso <controller.ttl> .
+	
+<http://github.com/blablack/midimsg.lv2/modwheel>
+	a lv2:Plugin ;
+	lv2:binary <modwheel.so>  ;
+	rdfs:seeAlso <modwheel.ttl> .
+
 
 

@@ -8,7 +8,7 @@
 #include "lv2/lv2plug.in/ns/ext/atom/util.h"
 #include "lv2/lv2plug.in/ns/ext/midi/midi.h"
 
-#include "controller.hpp"
+#include "modwheel.hpp"
 
 using namespace std;
 
@@ -17,7 +17,7 @@ typedef struct
 	LV2_URID_Map* map;
 
 	/* URIs */
-	controllerURIs uris;
+	modwheelURIs uris;
 	LV2_Atom_Forge forge;
 
 	char *bundle_path;
@@ -26,20 +26,19 @@ typedef struct
 
 	float* output;
 
-	const float* controllerNumber;
 	const float* logarithmic;
 
 	const float* minimum;
 	const float* maximum;
 
 	float lastOutput;
-} controller;
+} modwheel;
 
 //---------------------------------- INSANTIATE PLUGIN --------------------------------------------
 
 static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, const char* bundle_path, const LV2_Feature* const* features)
 {
-	controller* self = (controller*)malloc(sizeof(controller));
+	modwheel* self = (modwheel*)malloc(sizeof(modwheel));
 
 	self->lastOutput = 0;
 
@@ -54,7 +53,7 @@ static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, con
 		cout << endl << "Missing feature urid:map." << endl;
 
 	/* Map URIs and initialise forge */
-	map_controller_uris(self->map, &self->uris);
+	map_modwheel_uris(self->map, &self->uris);
 	lv2_atom_forge_init(&self->forge, self->map);
 
 	// store the bundle_path string to "self"
@@ -66,7 +65,7 @@ static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, con
 
 static void connect_port(LV2_Handle instance, uint32_t port, void* data)
 {
-	controller* self = (controller*)instance;
+	modwheel* self = (modwheel*)instance;
 
 	switch ((PortIndex)port)
 	{
@@ -78,9 +77,6 @@ static void connect_port(LV2_Handle instance, uint32_t port, void* data)
 		self->output = (float*)data;
 		break;
 
-	case CONTROLLER_CONTROLLERNUMBER:
-		self->controllerNumber = (float*)data;
-		break;
 	case CONTROLLER_LOGARITHMIC:
 		self->logarithmic = (float*)data;
 		break;
@@ -95,7 +91,7 @@ static void connect_port(LV2_Handle instance, uint32_t port, void* data)
 
 static void activate(LV2_Handle instance)
 {
-	controller* self = (controller*)instance;
+	modwheel* self = (modwheel*)instance;
 }
 
 static void deactivate(LV2_Handle instance)
@@ -104,7 +100,7 @@ static void deactivate(LV2_Handle instance)
 
 static void cleanup(LV2_Handle instance)
 {
-	controller* self = (controller*)instance;
+	modwheel* self = (modwheel*)instance;
 
 	free(self->bundle_path);
 
@@ -113,15 +109,14 @@ static void cleanup(LV2_Handle instance)
 
 static void run(LV2_Handle instance, uint32_t n_samples)
 {
-	controller* self = (controller*)instance;
+	modwheel* self = (modwheel*)instance;
 
-	int p_controllerNumber = floor(*(self->controllerNumber));
 	bool p_log = *(self->logarithmic) > 0;
 
 	float* const output = self->output;
 	memset(output, 0, sizeof(float)*n_samples);
 
-	controllerURIs* uris = &self->uris;
+	modwheelURIs* uris = &self->uris;
 
 	/* Read incoming events */
 	LV2_ATOM_SEQUENCE_FOREACH(self->input_port, ev)
@@ -129,13 +124,11 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 		if (ev->body.type == uris->midi_Event)
 		{
 			const uint8_t* buf = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
-			if (ev->body.size >= 3 && lv2_midi_message_type(buf) == LV2_MIDI_MSG_CONTROLLER)
-				if(int(buf[1] == p_controllerNumber))
-				{
-					self->lastOutput = (int)buf[2];
-					//cout << self->lastOutput << endl;
-				}
-
+			if (ev->body.size >= 3 && lv2_midi_message_type(buf) == LV2_MIDI_MSG_BENDER)
+			{
+				self->lastOutput = (int)buf[2];
+				//cout << self->lastOutput << endl;
+			}
 		}
 	}
 
@@ -167,7 +160,7 @@ const void* extension_data(const char* uri)
 }
 
 static const LV2_Descriptor descriptor = {
-		controller_URI,
+		modwheel_URI,
 		instantiate,
 		connect_port,
 		activate,

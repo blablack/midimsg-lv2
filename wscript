@@ -70,6 +70,7 @@ def build(bld):
 
  	plugins = '''
 	controller
+	modwheel
 	'''.split()
 
 	for i in plugins:
