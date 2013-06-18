@@ -3,19 +3,19 @@
 @prefix lv2: 	<http://lv2plug.in/ns/lv2core#> .
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://avwlv2.sourceforge.net/plugins/avw/>
+<http://github.com/blablack/midimsg.lv2/>
 	a doap:Project ;
-	lv2:symbol "avw" ;
+	lv2:symbol "midimsg" ;
 	doap:name "Midi Messages LV2" ;
-	doap:shortdesc "An LV2 port of the AMS internal modules." ;
-	doap:homepage <http://avwlv2.sourceforge.net/> ;
+	doap:shortdesc "Translate midi messages to usable values" ;
+	doap:homepage <http://github.com/blablack/midimsg.lv2/> ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	doap:maintainer [
 		foaf:name "Aurélien Leblond" ;
 		foaf:mbox <mailto:blablack@gmail.com>
 	] .
 
-<http://avwlv2.sourceforge.net/plugins/avw/controller>
+<http://github.com/blablack/midimsg.lv2/controller>
 	a lv2:Plugin ;
 	lv2:binary <controller.so>  ;
 	rdfs:seeAlso <controller.ttl> .

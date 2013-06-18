@@ -3,7 +3,7 @@
 
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
 
-#define controller_URI "http://avwlv2.sourceforge.net/plugins/avw/controller"
+#define controller_URI "http://github.com/blablack/midimsg.lv2/controller"
 //#define LV2_MIDI__MidiEvent "http://lv2plug.in/ns/ext/midi#MidiEvent"
 
 typedef struct
