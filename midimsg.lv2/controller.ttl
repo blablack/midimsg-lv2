@@ -261,8 +261,16 @@ rdfs:label "127 - Poly Operation" ;
 	] , [
 		a lv2:OutputPort, lv2:CVPort ;
 		lv2:index 5 ;
-		lv2:symbol "output" ;
-		lv2:name "Output" ;
+		lv2:symbol "output_cv" ;
+		lv2:name "Output - CV" ;
+		lv2:default 0.0 ;
+		lv2:minimum -1.0 ;
+       	lv2:maximum 1.0 ;
+	] , [
+		a lv2:OutputPort, lv2:ControlPort ;
+		lv2:index 6 ;
+		lv2:symbol "output_control" ;
+		lv2:name "Output - Control" ;
 		lv2:default 0.0 ;
 		lv2:minimum -1.0 ;
        	lv2:maximum 1.0 ;

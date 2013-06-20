@@ -24,7 +24,8 @@ typedef struct
 
 	LV2_Atom_Sequence* input_port;
 
-	float* output;
+	float* output_cv;
+	float* output_control;
 
 	const float* controllerNumber;
 	const float* logarithmic;
@@ -74,8 +75,11 @@ static void connect_port(LV2_Handle instance, uint32_t port, void* data)
 		self->input_port = (LV2_Atom_Sequence*)data;
 		break;
 
-	case CONTROLLER_OUTPUT:
-		self->output = (float*)data;
+	case CONTROLLER_OUTPUT_CV:
+		self->output_cv = (float*)data;
+		break;
+	case CONTROLLER_OUTPUT_CONTROL:
+		self->output_control = (float*)data;
 		break;
 
 	case CONTROLLER_CONTROLLERNUMBER:
@@ -115,27 +119,18 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 {
 	controller* self = (controller*)instance;
 
-	int p_controllerNumber = floor(*(self->controllerNumber));
-	bool p_log = *(self->logarithmic) > 0;
-
-	float* const output = self->output;
-	memset(output, 0, sizeof(float)*n_samples);
-
-	controllerURIs* uris = &self->uris;
-
 	/* Read incoming events */
 	LV2_ATOM_SEQUENCE_FOREACH(self->input_port, ev)
 	{
-		if (ev->body.type == uris->midi_Event)
+		if (ev->body.type == (&self->uris)->midi_Event)
 		{
 			const uint8_t* buf = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
 			if (ev->body.size >= 3 && lv2_midi_message_type(buf) == LV2_MIDI_MSG_CONTROLLER)
-				if(int(buf[1] == p_controllerNumber))
+				if(int(buf[1] == floor(*(self->controllerNumber))))
 				{
 					self->lastOutput = (int)buf[2];
 					//cout << self->lastOutput << endl;
 				}
-
 		}
 	}
 
@@ -158,7 +153,9 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 		scaled_value = ((float)self->lastOutput/127 * (maximum - minimum)) + minimum;
 
 	for (uint32_t s = 0; s < n_samples; s++)
-		self->output[s] = scaled_value;
+		self->output_cv[s] = scaled_value;
+
+	*self->output_control = scaled_value;
 }
 
 const void* extension_data(const char* uri)
