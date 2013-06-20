@@ -41,7 +41,7 @@ static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, con
 {
 	modwheel* self = (modwheel*)malloc(sizeof(modwheel));
 
-	self->lastOutput = 0;
+	self->lastOutput = 0.5;
 
 	/* Get host features */
 	for (int i = 0; features[i]; ++i)
