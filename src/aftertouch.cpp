@@ -8,16 +8,17 @@
 #include "lv2/lv2plug.in/ns/ext/atom/util.h"
 #include "lv2/lv2plug.in/ns/ext/midi/midi.h"
 
-#include "modwheel.hpp"
+#include "aftertouch.hpp"
 
 using namespace std;
 
+
 static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, const char* bundle_path, const LV2_Feature* const* features)
 {
-	modwheel* self = (modwheel*)malloc(sizeof(modwheel));
+	aftertouch* self = (aftertouch*)malloc(sizeof(aftertouch));
 
-	self->lastOutput = 0.5;
-	self->lastScaledValue = 0.5;
+	self->lastOutput = 0.0;
+	self->lastScaledValue = 0.0;
 
 	/* Get host features */
 	for (int i = 0; features[i]; ++i)
@@ -30,7 +31,7 @@ static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, con
 		cout << endl << "Missing feature urid:map." << endl;
 
 	/* Map URIs and initialise forge */
-	map_modwheel_uris(self->map, &self->uris);
+	map_aftertouch_uris(self->map, &self->uris);
 	lv2_atom_forge_init(&self->forge, self->map);
 
 	// store the bundle_path string to "self"
@@ -42,28 +43,28 @@ static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, con
 
 static void connect_port(LV2_Handle instance, uint32_t port, void* data)
 {
-	modwheel* self = (modwheel*)instance;
+	aftertouch* self = (aftertouch*)instance;
 
 	switch ((PortIndex)port)
 	{
-	case MODWHEEL_INPUT:
+	case AFTERTOUCH_INPUT:
 		self->input_port = (LV2_Atom_Sequence*)data;
 		break;
 
-	case MODWHEEL_OUTPUT_CV:
+	case AFTERTOUCH_OUTPUT_CV:
 		self->output_cv = (float*)data;
 		break;
-	case MODWHEEL_OUTPUT_CONTROL:
+	case AFTERTOUCH_OUTPUT_CONTROL:
 		self->output_control = (float*)data;
 		break;
 
-	case MODWHEEL_LOGARITHMIC:
+	case AFTERTOUCH_LOGARITHMIC:
 		self->logarithmic = (float*)data;
 		break;
-	case MODWHEEL_MINIMUM:
+	case AFTERTOUCH_MINIMUM:
 		self->minimum = (float*)data;
 		break;
-	case MODWHEEL_MAXIMUM:
+	case AFTERTOUCH_MAXIMUM:
 		self->maximum = (float*)data;
 		break;
 	}
@@ -71,7 +72,7 @@ static void connect_port(LV2_Handle instance, uint32_t port, void* data)
 
 static void activate(LV2_Handle instance)
 {
-	modwheel* self = (modwheel*)instance;
+	aftertouch* self = (aftertouch*)instance;
 }
 
 static void deactivate(LV2_Handle instance)
@@ -80,7 +81,7 @@ static void deactivate(LV2_Handle instance)
 
 static void cleanup(LV2_Handle instance)
 {
-	modwheel* self = (modwheel*)instance;
+	aftertouch* self = (aftertouch*)instance;
 
 	free(self->bundle_path);
 
@@ -89,7 +90,7 @@ static void cleanup(LV2_Handle instance)
 
 static void run(LV2_Handle instance, uint32_t n_samples)
 {
-	modwheel* self = (modwheel*)instance;
+	aftertouch* self = (aftertouch*)instance;
 
 	bool p_eventOccured = false;
 	/* Read incoming events */
@@ -98,7 +99,7 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 		if (ev->body.type == (&self->uris)->midi_Event)
 		{
 			const uint8_t* buf = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
-			if (ev->body.size >= 3 && lv2_midi_message_type(buf) == LV2_MIDI_MSG_BENDER)
+			if (ev->body.size >= 3 && lv2_midi_message_type(buf) == LV2_MIDI_MSG_CHANNEL_PRESSURE)
 			{
 				self->lastOutput = (int)buf[2];
 				p_eventOccured = true;
@@ -130,6 +131,7 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 		self->output_cv[s] = self->lastScaledValue;
 
 	*self->output_control = self->lastScaledValue;
+
 }
 
 const void* extension_data(const char* uri)
@@ -138,7 +140,7 @@ const void* extension_data(const char* uri)
 }
 
 static const LV2_Descriptor descriptor = {
-		modwheel_URI,
+		aftertouch_URI,
 		instantiate,
 		connect_port,
 		activate,

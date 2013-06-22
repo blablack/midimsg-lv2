@@ -12,37 +12,12 @@
 
 using namespace std;
 
-typedef struct
-{
-	LV2_URID_Map* map;
-
-	/* URIs */
-	controllerURIs uris;
-	LV2_Atom_Forge forge;
-
-	char *bundle_path;
-
-	LV2_Atom_Sequence* input_port;
-
-	float* output_cv;
-	float* output_control;
-
-	const float* controllerNumber;
-	const float* logarithmic;
-
-	const float* minimum;
-	const float* maximum;
-
-	float lastOutput;
-} controller;
-
-//---------------------------------- INSANTIATE PLUGIN --------------------------------------------
-
 static LV2_Handle instantiate(const LV2_Descriptor* descriptor,	double rate, const char* bundle_path, const LV2_Feature* const* features)
 {
 	controller* self = (controller*)malloc(sizeof(controller));
 
 	self->lastOutput = 0;
+	self->lastScaledValue = 0;
 
 	/* Get host features */
 	for (int i = 0; features[i]; ++i)
@@ -119,6 +94,7 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 {
 	controller* self = (controller*)instance;
 
+	float p_eventOccured = false;
 	/* Read incoming events */
 	LV2_ATOM_SEQUENCE_FOREACH(self->input_port, ev)
 	{
@@ -129,33 +105,35 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 				if(int(buf[1] == floor(*(self->controllerNumber))))
 				{
 					self->lastOutput = (int)buf[2];
+					p_eventOccured = true;
 					//cout << self->lastOutput << endl;
 				}
 		}
 	}
 
-	float scaled_value;
-
-	float maximum = *(self->maximum);
-	float minimum = *(self->minimum);
-
-	if (*(self->logarithmic) > 0)
+	if(p_eventOccured)
 	{
-		// haaaaack, stupid negatives and logarithms
-		float log_offset = 0;
-		if (minimum < 0)
-			log_offset = fabs(minimum);
-		const float min = log(minimum + 1 + log_offset);
-		const float max = log(maximum + 1 + log_offset);
-		scaled_value = expf((float)self->lastOutput/127 * (max - min) + min) - 1 - log_offset;
+		float maximum = *(self->maximum);
+		float minimum = *(self->minimum);
+
+		if (*(self->logarithmic) > 0)
+		{
+			// haaaaack, stupid negatives and logarithms
+			float log_offset = 0;
+			if (minimum < 0)
+				log_offset = fabs(minimum);
+			const float min = log(minimum + 1 + log_offset);
+			const float max = log(maximum + 1 + log_offset);
+			self->lastScaledValue = expf((float)self->lastOutput/127 * (max - min) + min) - 1 - log_offset;
+		}
+		else
+			self->lastScaledValue = ((float)self->lastOutput/127 * (maximum - minimum)) + minimum;
 	}
-	else
-		scaled_value = ((float)self->lastOutput/127 * (maximum - minimum)) + minimum;
 
 	for (uint32_t s = 0; s < n_samples; s++)
-		self->output_cv[s] = scaled_value;
+		self->output_cv[s] = self->lastScaledValue;
 
-	*self->output_control = scaled_value;
+	*self->output_control = self->lastScaledValue;
 }
 
 const void* extension_data(const char* uri)

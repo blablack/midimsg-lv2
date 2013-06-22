@@ -1,30 +1,30 @@
-#ifndef MODWHEEL
-#define MODWHEEL
+#ifndef AFTERTOUCH
+#define AFTERTOUCH
 
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
 
-#define modwheel_URI "http://github.com/blablack/midimsg.lv2/modwheel"
+#define aftertouch_URI "http://github.com/blablack/midimsg.lv2/aftertouch"
 
 typedef struct
 {
 	LV2_URID midi_Event;
-} modwheelURIs;
+} aftertouchURIs;
 
-static inline void map_modwheel_uris(LV2_URID_Map* map, modwheelURIs* uris)
+static inline void map_aftertouch_uris(LV2_URID_Map* map, aftertouchURIs* uris)
 {
 	uris->midi_Event = map->map(map->handle, LV2_MIDI__MidiEvent);
 }
 
 typedef enum
 {
-	MODWHEEL_INPUT = 0,
+	AFTERTOUCH_INPUT = 0,
 
-	MODWHEEL_LOGARITHMIC,
+	AFTERTOUCH_LOGARITHMIC,
 
-	MODWHEEL_MINIMUM,
-	MODWHEEL_MAXIMUM,
-	MODWHEEL_OUTPUT_CV,
-	MODWHEEL_OUTPUT_CONTROL,
+	AFTERTOUCH_MINIMUM,
+	AFTERTOUCH_MAXIMUM,
+	AFTERTOUCH_OUTPUT_CV,
+	AFTERTOUCH_OUTPUT_CONTROL,
 } PortIndex;
 
 typedef struct
@@ -32,7 +32,7 @@ typedef struct
 	LV2_URID_Map* map;
 
 	/* URIs */
-	modwheelURIs uris;
+	aftertouchURIs uris;
 	LV2_Atom_Forge forge;
 
 	char *bundle_path;
@@ -49,6 +49,6 @@ typedef struct
 
 	float lastOutput;
 	float lastScaledValue;
-} modwheel;
+} aftertouch;
 
 #endif

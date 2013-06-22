@@ -24,6 +24,11 @@
 	a lv2:Plugin ;
 	lv2:binary <modwheel.so>  ;
 	rdfs:seeAlso <modwheel.ttl> .
+	
+<http://github.com/blablack/midimsg.lv2/aftertouch>
+	a lv2:Plugin ;
+	lv2:binary <aftertouch.so>  ;
+	rdfs:seeAlso <aftertouch.ttl> .
 
 
 

@@ -1,5 +1,2 @@
 TO-DO LIST:
-- Add list of controller numbers as scale points in the Controller plugin
-- Add support for ModWheel
-- Add support for ChannelPressure
 - Add support for writing into midi messages (Controller, ModWheel and ChannelPressure)

@@ -71,6 +71,7 @@ def build(bld):
  	plugins = '''
 	controller
 	modwheel
+	aftertouch
 	'''.split()
 
 	for i in plugins:

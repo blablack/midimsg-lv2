@@ -1,4 +1,7 @@
 0.0.1:
 	* Initial release
-	* Midi Controller basically supported
+	* Midi Controller supported
+	* Midi ModWheel supported
+	* Midi Channel Pressure supported
+	* Only recalculate output value when midi event occured
 

@@ -7,11 +7,10 @@
 
 typedef struct
 {
-		LV2_URID midi_Event;
+	LV2_URID midi_Event;
 } controllerURIs;
 
-static inline void
-map_controller_uris(LV2_URID_Map* map, controllerURIs* uris)
+static inline void map_controller_uris(LV2_URID_Map* map, controllerURIs* uris)
 {
 	uris->midi_Event = map->map(map->handle, LV2_MIDI__MidiEvent);
 }
@@ -28,5 +27,31 @@ typedef enum
 	CONTROLLER_OUTPUT_CV,
 	CONTROLLER_OUTPUT_CONTROL,
 } PortIndex;
+
+
+typedef struct
+{
+	LV2_URID_Map* map;
+
+	/* URIs */
+	controllerURIs uris;
+	LV2_Atom_Forge forge;
+
+	char *bundle_path;
+
+	LV2_Atom_Sequence* input_port;
+
+	float* output_cv;
+	float* output_control;
+
+	const float* controllerNumber;
+	const float* logarithmic;
+
+	const float* minimum;
+	const float* maximum;
+
+	float lastOutput;
+	float lastScaledValue;
+} controller;
 
 #endif
