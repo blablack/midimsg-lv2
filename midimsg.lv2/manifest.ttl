@@ -8,7 +8,7 @@
 	lv2:symbol "midimsg" ;
 	doap:name "Midi Messages LV2" ;
 	doap:shortdesc "Translate midi messages to usable values" ;
-	doap:homepage <http://github.com/blablack/midimsg.lv2/> ;
+	doap:homepage <http://objectivewave.wordpress.com/midimsg-lv2> ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	doap:maintainer [
 		foaf:name "Aurélien Leblond" ;
