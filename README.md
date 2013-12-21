@@ -1,4 +1,4 @@
-midimsg.lv2
+midimsg-lv2
 ===========
 
 A collection of basic LV2 plugins to translate midi messages to usable values.
@@ -32,7 +32,7 @@ More information about Ingen here: [http://drobilla.net/software/ingen/](http://
 BUG REPORTING
 -------------
 Please use the issue tracker on github to report bugs:
-[http://github.com/blablack/midimsg.lv2/issues](http://github.com/blablack/midimsg.lv2/issues)
+[http://github.com/blablack/midimsg-lv2/issues](http://github.com/blablack/midimsg-lv2/issues)
 
 
 
