@@ -3,7 +3,7 @@
 
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
 
-#define aftertouch_URI "http://github.com/blablack/midimsg.lv2/aftertouch"
+#define aftertouch_URI "http://github.com/blablack/midimsg-lv2/aftertouch"
 
 typedef struct
 {

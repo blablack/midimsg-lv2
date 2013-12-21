@@ -6,7 +6,7 @@ from waflib import Logs
 from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
-APPNAME = 'midimsg.lv2'
+APPNAME = 'midimsg-lv2'
 VERSION = '0.0.1'
 
 # Mandatory variables
@@ -21,7 +21,7 @@ def options(opt):
     
 def configure(conf):
     autowaf.configure(conf)
-    autowaf.display_header('MidiMessages LV2 Configuration')
+    autowaf.display_header('midimsg-lv2 Configuration')
     
     conf.load('compiler_cxx')
     
@@ -78,7 +78,7 @@ def build(bld):
 		build_plugin(bld, 'midimsg.lv2', i, ['src/%s.cpp' % i],
 			['-DPLUGIN_CLASS=%s' % i,
 			'-std=c++11',
-            '-DURI_PREFIX=\"http://lv2plug.in/plugins/avw/\"',
+            '-DURI_PREFIX=\"http://github.com/blablack/midimsg-lv2/\"',
             '-DPLUGIN_URI_SUFFIX="%s"' % i,
             '-DPLUGIN_HEADER="src/%s.hpp"' % i],
 		  	['LV2', 'LVTK_PLUGIN'],

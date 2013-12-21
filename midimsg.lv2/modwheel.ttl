@@ -5,9 +5,9 @@
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 @prefix atom:	<http://lv2plug.in/ns/ext/atom#> .
 
-<http://github.com/blablack/midimsg.lv2/modwheel>
+<http://github.com/blablack/midimsg-lv2/modwheel>
 	a lv2:Plugin, lv2:UtilityPlugin ;
-	lv2:project <http://github.com/blablack/midimsg.lv2/> ;        
+	lv2:project <http://github.com/blablack/midimsg-lv2/> ;
 	doap:name "Midi Modwheel" ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	lv2:optionalFeature lv2:hardRTCapable ;

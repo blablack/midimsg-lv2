@@ -3,7 +3,7 @@
 @prefix lv2: 	<http://lv2plug.in/ns/lv2core#> .
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 
-<http://github.com/blablack/midimsg.lv2/>
+<http://github.com/blablack/midimsg-lv2/>
 	a doap:Project ;
 	lv2:symbol "midimsg" ;
 	doap:name "Midi Messages LV2" ;
@@ -15,17 +15,17 @@
 		foaf:mbox <mailto:blablack@gmail.com>
 	] .
 
-<http://github.com/blablack/midimsg.lv2/controller>
+<http://github.com/blablack/midimsg-lv2/controller>
 	a lv2:Plugin ;
 	lv2:binary <controller.so>  ;
 	rdfs:seeAlso <controller.ttl> .
-	
-<http://github.com/blablack/midimsg.lv2/modwheel>
+
+<http://github.com/blablack/midimsg-lv2/modwheel>
 	a lv2:Plugin ;
 	lv2:binary <modwheel.so>  ;
 	rdfs:seeAlso <modwheel.ttl> .
-	
-<http://github.com/blablack/midimsg.lv2/aftertouch>
+
+<http://github.com/blablack/midimsg-lv2/aftertouch>
 	a lv2:Plugin ;
 	lv2:binary <aftertouch.so>  ;
 	rdfs:seeAlso <aftertouch.ttl> .

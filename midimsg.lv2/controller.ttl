@@ -5,9 +5,9 @@
 @prefix rdfs: 	<http://www.w3.org/2000/01/rdf-schema#> .
 @prefix atom:	<http://lv2plug.in/ns/ext/atom#> .
 
-<http://github.com/blablack/midimsg.lv2/controller>
+<http://github.com/blablack/midimsg-lv2/controller>
 	a lv2:Plugin, lv2:UtilityPlugin ;
-	lv2:project <http://github.com/blablack/midimsg.lv2/> ;        
+	lv2:project <http://github.com/blablack/midimsg-lv2/> ;
 	doap:name "Midi Controller" ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	lv2:optionalFeature lv2:hardRTCapable ;
@@ -29,209 +29,209 @@
 		lv2:default 0.0 ;
 		lv2:minimum 0.0 ;
        	lv2:maximum 127.0 ;
-		lv2:scalePoint  
-		[  
+		lv2:scalePoint
+		[
 rdfs:label "0 - Bank Select (coarse)" ;
   rdf:value 0 ;
- ] , [  
+ ] , [
 rdfs:label "1 - Modulation Wheel (coarse)" ;
   rdf:value 1 ;
- ] , [  
+ ] , [
 rdfs:label "2 - Breath controller (coarse)" ;
   rdf:value 2 ;
- ] , [  
+ ] , [
 rdfs:label "4 - Foot Pedal (coarse)" ;
   rdf:value 4 ;
- ] , [  
+ ] , [
 rdfs:label "5 - Portamento Time (coarse)" ;
   rdf:value 5 ;
- ] , [  
+ ] , [
 rdfs:label "6 - Data Entry (coarse)" ;
   rdf:value 6 ;
- ] , [  
+ ] , [
 rdfs:label "7 - Volume (coarse)" ;
   rdf:value 7 ;
- ] , [  
+ ] , [
 rdfs:label "8 - Balance (coarse)" ;
   rdf:value 8 ;
- ] , [  
+ ] , [
 rdfs:label "10 - Pan position (coarse)" ;
   rdf:value 10 ;
- ] , [  
+ ] , [
 rdfs:label "11 - Expression (coarse)" ;
   rdf:value 11 ;
- ] , [  
+ ] , [
 rdfs:label "12 - Effect Control 1 (coarse)" ;
   rdf:value 12 ;
- ] , [  
+ ] , [
 rdfs:label "13 - Effect Control 2 (coarse)" ;
   rdf:value 13 ;
- ] , [  
+ ] , [
 rdfs:label "16 - General Purpose Slider 1" ;
   rdf:value 16 ;
- ] , [  
+ ] , [
 rdfs:label "17 - General Purpose Slider 2" ;
   rdf:value 17 ;
- ] , [  
+ ] , [
 rdfs:label "18 - General Purpose Slider 3" ;
   rdf:value 18 ;
- ] , [  
+ ] , [
 rdfs:label "19 - General Purpose Slider 4" ;
   rdf:value 19 ;
- ] , [  
+ ] , [
 rdfs:label "32 - Bank Select (fine)" ;
   rdf:value 32 ;
- ] , [  
+ ] , [
 rdfs:label "33 - Modulation Wheel (fine)" ;
   rdf:value 33 ;
- ] , [  
+ ] , [
 rdfs:label "34 - Breath controller (fine)" ;
   rdf:value 34 ;
- ] , [  
+ ] , [
 rdfs:label "36 - Foot Pedal (fine)" ;
   rdf:value 36 ;
- ] , [  
+ ] , [
 rdfs:label "37 - Portamento Time (fine)" ;
   rdf:value 37 ;
- ] , [  
+ ] , [
 rdfs:label "38 - Data Entry (fine)" ;
   rdf:value 38 ;
- ] , [  
+ ] , [
 rdfs:label "39 - Volume (fine)" ;
   rdf:value 39 ;
- ] , [  
+ ] , [
 rdfs:label "40 - Balance (fine)" ;
   rdf:value 40 ;
- ] , [  
+ ] , [
 rdfs:label "42 - Pan position (fine)" ;
   rdf:value 42 ;
- ] , [  
+ ] , [
 rdfs:label "43 - Expression (fine)" ;
   rdf:value 43 ;
- ] , [  
+ ] , [
 rdfs:label "44 - Effect Control 1 (fine)" ;
   rdf:value 44 ;
- ] , [  
+ ] , [
 rdfs:label "45 - Effect Control 2 (fine)" ;
   rdf:value 45 ;
- ] , [  
+ ] , [
 rdfs:label "64 - Hold Pedal (on/off)" ;
   rdf:value 64 ;
- ] , [  
+ ] , [
 rdfs:label "65 - Portamento (on/off)" ;
   rdf:value 65 ;
- ] , [  
+ ] , [
 rdfs:label "66 - Sustenuto Pedal (on/off)" ;
   rdf:value 66 ;
- ] , [  
+ ] , [
 rdfs:label "67 - Soft Pedal (on/off)" ;
   rdf:value 67 ;
- ] , [  
+ ] , [
 rdfs:label "68 - Legato Pedal (on/off)" ;
   rdf:value 68 ;
- ] , [  
+ ] , [
 rdfs:label "69 - Hold 2 Pedal (on/off)" ;
   rdf:value 69 ;
- ] , [  
+ ] , [
 rdfs:label "70 - Sound Variation" ;
   rdf:value 70 ;
- ] , [  
+ ] , [
 rdfs:label "71 - Sound Timbre" ;
   rdf:value 71 ;
- ] , [  
+ ] , [
 rdfs:label "72 - Sound Release Time" ;
   rdf:value 72 ;
- ] , [  
+ ] , [
 rdfs:label "73 - Sound Attack Time" ;
   rdf:value 73 ;
- ] , [  
+ ] , [
 rdfs:label "74 - Sound Brightness" ;
   rdf:value 74 ;
- ] , [  
+ ] , [
 rdfs:label "75 - Sound Control 6" ;
   rdf:value 75 ;
- ] , [  
+ ] , [
 rdfs:label "76 - Sound Control 7" ;
   rdf:value 76 ;
- ] , [  
+ ] , [
 rdfs:label "77 - Sound Control 8" ;
   rdf:value 77 ;
- ] , [  
+ ] , [
 rdfs:label "78 - Sound Control 9" ;
   rdf:value 78 ;
- ] , [  
+ ] , [
 rdfs:label "79 - Sound Control 10" ;
   rdf:value 79 ;
- ] , [  
+ ] , [
 rdfs:label "80 - General Purpose Button 1 (on/off)" ;
   rdf:value 80 ;
- ] , [  
+ ] , [
 rdfs:label "81 - General Purpose Button 2 (on/off)" ;
   rdf:value 81 ;
- ] , [  
+ ] , [
 rdfs:label "82 - General Purpose Button 3 (on/off)" ;
   rdf:value 82 ;
- ] , [  
+ ] , [
 rdfs:label "83 - General Purpose Button 4 (on/off)" ;
   rdf:value 83 ;
- ] , [  
+ ] , [
 rdfs:label "91 - Effects Level" ;
   rdf:value 91 ;
- ] , [  
+ ] , [
 rdfs:label "92 - Tremulo Level" ;
   rdf:value 92 ;
- ] , [  
+ ] , [
 rdfs:label "93 - Chorus Level" ;
   rdf:value 93 ;
- ] , [  
+ ] , [
 rdfs:label "94 - Celeste Level" ;
   rdf:value 94 ;
- ] , [  
+ ] , [
 rdfs:label "95 - Phaser Level" ;
   rdf:value 95 ;
- ] , [  
+ ] , [
 rdfs:label "96 - Data Button increment" ;
   rdf:value 96 ;
- ] , [  
+ ] , [
 rdfs:label "97 - Data Button decrement" ;
   rdf:value 97 ;
- ] , [  
+ ] , [
 rdfs:label "98 - Non-registered Parameter (fine)" ;
   rdf:value 98 ;
- ] , [  
+ ] , [
 rdfs:label "99 - Non-registered Parameter (coarse)" ;
   rdf:value 99 ;
- ] , [  
+ ] , [
 rdfs:label "100 - Registered Parameter (fine)" ;
   rdf:value 100 ;
- ] , [  
+ ] , [
 rdfs:label "101 - Registered Parameter (coarse)" ;
   rdf:value 101 ;
- ] , [  
+ ] , [
 rdfs:label "120 - All Sound Off" ;
   rdf:value 120 ;
- ] , [  
+ ] , [
 rdfs:label "121 - All Controllers Off" ;
   rdf:value 121 ;
- ] , [  
+ ] , [
 rdfs:label "122 - Local Keyboard (on/off)" ;
   rdf:value 122 ;
- ] , [  
+ ] , [
 rdfs:label "123 - All Notes Off" ;
   rdf:value 123 ;
- ] , [  
+ ] , [
 rdfs:label "124 - Omni Mode Off" ;
   rdf:value 124 ;
- ] , [  
+ ] , [
 rdfs:label "125 - Omni Mode On" ;
   rdf:value 125 ;
- ] , [  
+ ] , [
 rdfs:label "126 - Mono Operation" ;
   rdf:value 126 ;
- ] , [  
+ ] , [
 rdfs:label "127 - Poly Operation" ;
   rdf:value 127 ;
- ] 
+ ]
 
 	] , [
 		a lv2:InputPort, lv2:ControlPort ;

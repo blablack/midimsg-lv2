@@ -3,7 +3,7 @@
 
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
 
-#define controller_URI "http://github.com/blablack/midimsg.lv2/controller"
+#define controller_URI "http://github.com/blablack/midimsg-lv2/controller"
 
 typedef struct
 {

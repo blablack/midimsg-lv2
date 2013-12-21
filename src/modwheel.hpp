@@ -3,7 +3,7 @@
 
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
 
-#define modwheel_URI "http://github.com/blablack/midimsg.lv2/modwheel"
+#define modwheel_URI "http://github.com/blablack/midimsg-lv2/modwheel"
 
 typedef struct
 {
