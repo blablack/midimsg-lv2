@@ -11,7 +11,7 @@
 	doap:homepage <http://objectivewave.wordpress.com/midimsg-lv2> ;
 	doap:license <http://opensource.org/licenses/isc> ;
 	doap:maintainer [
-		foaf:name "Aurélien Leblond" ;
+		foaf:name "Aurelien Leblond" ;
 		foaf:mbox <mailto:blablack@gmail.com>
 	] .
 
