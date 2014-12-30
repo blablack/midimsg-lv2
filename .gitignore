@@ -4,6 +4,11 @@ midimsg-lv2.cbp
 midimsg-lv2.layout
 debug_ingen.sh
 debug_jalv.sh
+midimsg-lv2.config
+midimsg-lv2.creator
+midimsg-lv2.creator.user
+midimsg-lv2.files
+midimsg-lv2.includes
 
 
 # Directory
