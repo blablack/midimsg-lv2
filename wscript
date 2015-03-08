@@ -17,6 +17,7 @@ out = 'build'
 def options(opt):
     autowaf.set_options(opt)
     opt.load('compiler_cxx')
+    opt.load('lv2')
     
     
 def configure(conf):
@@ -24,6 +25,7 @@ def configure(conf):
     autowaf.display_header('midimsg-lv2 Configuration')
     
     conf.load('compiler_cxx')
+    conf.load('lv2')
     
     autowaf.check_pkg(conf, 'lv2', uselib_store='LV2', atleast_version='1.2.0')
         
