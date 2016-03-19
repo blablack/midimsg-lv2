@@ -63,10 +63,13 @@ def build(bld):
 		return shutil.copy(src, tgt)
     
 	for i in bld.path.ant_glob('midimsg.lv2/*.ttl'):
-		bld(rule   = do_copy,
-            source = i,
-            target = bld.path.get_bld().make_node('midimsg.lv2/%s' % i),
-            install_path = '${LV2DIR}/midimsg.lv2')
+	        bld(features     = 'subst',
+                is_copy      = True,
+                source       = i,
+                target       = bld.path.get_bld().make_node('midimsg.lv2/%s' % i),
+                install_path = '${LV2DIR}/midimsg.lv2')
+
+
 
  	plugins = '''
 	controller
