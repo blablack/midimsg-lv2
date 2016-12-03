@@ -40,6 +40,9 @@ rdfs:label "1 - Modulation Wheel (coarse)" ;
 rdfs:label "2 - Breath controller (coarse)" ;
   rdf:value 2 ;
  ] , [
+rdfs:label "3 - CC 3" ;
+  rdf:value 3 ;
+ ] , [
 rdfs:label "4 - Foot Pedal (coarse)" ;
   rdf:value 4 ;
  ] , [
@@ -55,6 +58,9 @@ rdfs:label "7 - Volume (coarse)" ;
 rdfs:label "8 - Balance (coarse)" ;
   rdf:value 8 ;
  ] , [
+rdfs:label "9 - CC 9" ;
+  rdf:value 9 ;
+ ] , [
 rdfs:label "10 - Pan position (coarse)" ;
   rdf:value 10 ;
  ] , [
@@ -66,6 +72,12 @@ rdfs:label "12 - Effect Control 1 (coarse)" ;
  ] , [
 rdfs:label "13 - Effect Control 2 (coarse)" ;
   rdf:value 13 ;
+ ] , [
+rdfs:label "14 - CC 14" ;
+  rdf:value 14 ;
+ ] , [
+rdfs:label "15 - CC 15" ;
+  rdf:value 15 ;
  ] , [
 rdfs:label "16 - General Purpose Slider 1" ;
   rdf:value 16 ;
@@ -124,6 +136,9 @@ rdfs:label "33 - Modulation Wheel (fine)" ;
 rdfs:label "34 - Breath controller (fine)" ;
   rdf:value 34 ;
  ] , [
+rdfs:label "35 - CC 35" ;
+  rdf:value 35 ;
+ ] , [
 rdfs:label "36 - Foot Pedal (fine)" ;
   rdf:value 36 ;
  ] , [
@@ -139,6 +154,9 @@ rdfs:label "39 - Volume (fine)" ;
 rdfs:label "40 - Balance (fine)" ;
   rdf:value 40 ;
  ] , [
+rdfs:label "41 - CC 41" ;
+  rdf:value 41 ;
+ ] , [
 rdfs:label "42 - Pan position (fine)" ;
   rdf:value 42 ;
  ] , [
@@ -150,6 +168,60 @@ rdfs:label "44 - Effect Control 1 (fine)" ;
  ] , [
 rdfs:label "45 - Effect Control 2 (fine)" ;
   rdf:value 45 ;
+ ] , [
+rdfs:label "46 - CC 46" ;
+  rdf:value 46 ;
+ ] , [
+rdfs:label "47 - CC 47" ;
+  rdf:value 47 ;
+ ] , [
+rdfs:label "48 - CC 48" ;
+  rdf:value 48 ;
+ ] , [
+rdfs:label "49 - CC 49" ;
+  rdf:value 49 ;
+ ] , [
+rdfs:label "50 - CC 50" ;
+  rdf:value 50 ;
+ ] , [
+rdfs:label "51 - CC 51" ;
+  rdf:value 51 ;
+ ] , [
+rdfs:label "52 - CC 52" ;
+  rdf:value 52 ;
+ ] , [
+rdfs:label "53 - CC 53" ;
+  rdf:value 53 ;
+ ] , [
+rdfs:label "54 - CC 54" ;
+  rdf:value 54 ;
+ ] , [
+rdfs:label "55 - CC 55" ;
+  rdf:value 55 ;
+ ] , [
+rdfs:label "56 - CC 56" ;
+  rdf:value 56 ;
+ ] , [
+rdfs:label "57 - CC 57" ;
+  rdf:value 57 ;
+ ] , [
+rdfs:label "58 - CC 58" ;
+  rdf:value 58 ;
+ ] , [
+rdfs:label "59 - CC 59" ;
+  rdf:value 59 ;
+ ] , [
+rdfs:label "60 - CC 60" ;
+  rdf:value 60 ;
+ ] , [
+rdfs:label "61 - CC 61" ;
+  rdf:value 61 ;
+ ] , [
+rdfs:label "62 - CC 62" ;
+  rdf:value 62 ;
+ ] , [
+rdfs:label "63 - CC 63" ;
+  rdf:value 63 ;
  ] , [
 rdfs:label "64 - Hold Pedal (on/off)" ;
   rdf:value 64 ;
@@ -211,6 +283,27 @@ rdfs:label "82 - General Purpose Button 3 (on/off)" ;
 rdfs:label "83 - General Purpose Button 4 (on/off)" ;
   rdf:value 83 ;
  ] , [
+rdfs:label "84 - CC 84" ;
+  rdf:value 84 ;
+ ] , [
+rdfs:label "85 - CC 85" ;
+  rdf:value 85 ;
+ ] , [
+rdfs:label "86 - CC 86" ;
+  rdf:value 86 ;
+ ] , [
+rdfs:label "87 - CC 87" ;
+  rdf:value 87 ;
+ ] , [
+rdfs:label "88 - CC 88" ;
+  rdf:value 88 ;
+ ] , [
+rdfs:label "89 - CC 89" ;
+  rdf:value 89 ;
+ ] , [
+rdfs:label "90 - CC 90" ;
+  rdf:value 90 ;
+ ] , [
 rdfs:label "91 - Effects Level" ;
   rdf:value 91 ;
  ] , [
@@ -243,6 +336,60 @@ rdfs:label "100 - Registered Parameter (fine)" ;
  ] , [
 rdfs:label "101 - Registered Parameter (coarse)" ;
   rdf:value 101 ;
+ ] , [
+rdfs:label "102 - CC 102" ;
+  rdf:value 102 ;
+ ] , [
+rdfs:label "103 - CC 103" ;
+  rdf:value 103 ;
+ ] , [
+rdfs:label "104 - CC 104" ;
+  rdf:value 104 ;
+ ] , [
+rdfs:label "105 - CC 105" ;
+  rdf:value 105 ;
+ ] , [
+rdfs:label "106 - CC 106" ;
+  rdf:value 106 ;
+ ] , [
+rdfs:label "107 - CC 107" ;
+  rdf:value 107 ;
+ ] , [
+rdfs:label "108 - CC 108" ;
+  rdf:value 108 ;
+ ] , [
+rdfs:label "109 - CC 109" ;
+  rdf:value 109 ;
+ ] , [
+rdfs:label "110 - CC 110" ;
+  rdf:value 110 ;
+ ] , [
+rdfs:label "111 - CC 111" ;
+  rdf:value 111 ;
+ ] , [
+rdfs:label "112 - CC 112" ;
+  rdf:value 112 ;
+ ] , [
+rdfs:label "113 - CC 113" ;
+  rdf:value 113 ;
+ ] , [
+rdfs:label "114 - CC 114" ;
+  rdf:value 114 ;
+ ] , [
+rdfs:label "115 - CC 115" ;
+  rdf:value 115 ;
+ ] , [
+rdfs:label "116 - CC 116" ;
+  rdf:value 116 ;
+ ] , [
+rdfs:label "117 - CC 117" ;
+  rdf:value 117 ;
+ ] , [
+rdfs:label "118 - CC 118" ;
+  rdf:value 118 ;
+ ] , [
+rdfs:label "119 - CC 119" ;
+  rdf:value 119 ;
  ] , [
 rdfs:label "120 - All Sound Off" ;
   rdf:value 120 ;
