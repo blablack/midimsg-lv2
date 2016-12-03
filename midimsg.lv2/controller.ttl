@@ -79,6 +79,42 @@ rdfs:label "18 - General Purpose Slider 3" ;
 rdfs:label "19 - General Purpose Slider 4" ;
   rdf:value 19 ;
  ] , [
+rdfs:label "20 - CC 20" ;
+  rdf:value 20 ;
+ ] , [
+rdfs:label "21 - CC 21" ;
+  rdf:value 21 ;
+ ] , [
+rdfs:label "22 - CC 22" ;
+  rdf:value 22 ;
+ ] , [
+rdfs:label "23 - CC 23" ;
+  rdf:value 23 ;
+ ] , [
+rdfs:label "24 - CC 24" ;
+  rdf:value 24 ;
+ ] , [
+rdfs:label "25 - CC 25" ;
+  rdf:value 25 ;
+ ] , [
+rdfs:label "26 - CC 26" ;
+  rdf:value 26 ;
+ ] , [
+rdfs:label "27 - CC 27" ;
+  rdf:value 27 ;
+ ] , [
+rdfs:label "28 - CC 28" ;
+  rdf:value 28 ;
+ ] , [
+rdfs:label "29 - CC 29" ;
+  rdf:value 29 ;
+ ] , [
+rdfs:label "30 - CC 30" ;
+  rdf:value 30 ;
+ ] , [
+rdfs:label "31 - CC 31" ;
+  rdf:value 31 ;
+ ] , [
 rdfs:label "32 - Bank Select (fine)" ;
   rdf:value 32 ;
  ] , [
