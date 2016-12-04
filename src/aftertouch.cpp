@@ -99,11 +99,12 @@ static void run(LV2_Handle instance, uint32_t n_samples)
 		if (ev->body.type == (&self->uris)->midi_Event)
 		{
 			const uint8_t* buf = (const uint8_t*)LV2_ATOM_BODY(&ev->body);
-			if (ev->body.size >= 3 && lv2_midi_message_type(buf) == LV2_MIDI_MSG_CHANNEL_PRESSURE)
+			//cout<<ev->body.size<<" - " << lv2_midi_message_type(buf) << " - " << LV2_MIDI_MSG_CHANNEL_PRESSURE << endl;
+			if (ev->body.size >= 2 && lv2_midi_message_type(buf) == LV2_MIDI_MSG_CHANNEL_PRESSURE)
 			{
-				self->lastOutput = (int)buf[2];
+				//cout << (int)buf[2] << " - " << (int)buf[1] << endl;
+				self->lastOutput = (int)buf[1];
 				p_eventOccured = true;
-				//cout << self->lastOutput << endl;
 			}
 		}
 	}
