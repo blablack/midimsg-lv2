@@ -68,7 +68,7 @@ def build(bld):
 	        bld(features     = 'subst',
                 is_copy      = True,
                 source       = i,
-                target       = bld.path.get_bld().make_node('midimsg.lv2/%s' % i),
+                target       = 'midimsg.lv2/%s' % i.name,
                 install_path = '${LV2DIR}/midimsg.lv2')
 
 
