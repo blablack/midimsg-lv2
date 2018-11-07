@@ -51,7 +51,7 @@ def build_plugin(bld, bundle, name, source, cxxflags=[], libs=[], add_source=[])
     if cxxflags != []:
         obj.cxxflags = cxxflags
     if libs != []:
-	obj.uselib = libs
+        obj.uselib = libs
     obj.install_path = '${LV2DIR}/' + bundle
 
     # Install data file
@@ -59,12 +59,12 @@ def build_plugin(bld, bundle, name, source, cxxflags=[], libs=[], add_source=[])
     bld.install_files('${LV2DIR}/' + bundle, os.path.join(bundle, data_file))
 
 def build(bld):
-	def do_copy(task):
-		src = task.inputs[0].abspath()
-		tgt = task.outputs[0].abspath()
-		return shutil.copy(src, tgt)
+        def do_copy(task):
+                src = task.inputs[0].abspath()
+                tgt = task.outputs[0].abspath()
+                return shutil.copy(src, tgt)
     
-	for i in bld.path.ant_glob('midimsg.lv2/*.ttl'):
+        for i in bld.path.ant_glob('midimsg.lv2/*.ttl'):
 	        bld(features     = 'subst',
                 is_copy      = True,
                 source       = i,
@@ -73,20 +73,18 @@ def build(bld):
 
 
 
- 	plugins = '''
-	controller
-	modwheel
-	aftertouch
-	'''.split()
+        plugins = '''
+        controller
+        modwheel
+        aftertouch
+        '''.split()
 
-	for i in plugins:
-		build_plugin(bld, 'midimsg.lv2', i, ['src/%s.cpp' % i],
-			['-DPLUGIN_CLASS=%s' % i,
-			'-std=c++11',
-            '-DURI_PREFIX=\"http://github.com/blablack/midimsg-lv2/\"',
-            '-DPLUGIN_URI_SUFFIX="%s"' % i,
-            '-DPLUGIN_HEADER="src/%s.hpp"' % i],
-		  	['LV2', 'LVTK_PLUGIN'],
-		  	[])
-		  	
-	
+        for i in plugins:
+                build_plugin(bld, 'midimsg.lv2', i, ['src/%s.cpp' % i],
+                        ['-DPLUGIN_CLASS=%s' % i,
+                        '-std=c++11',
+                        '-DURI_PREFIX=\"http://github.com/blablack/midimsg-lv2/\"',
+                        '-DPLUGIN_URI_SUFFIX="%s"' % i,
+                        '-DPLUGIN_HEADER="src/%s.hpp"' % i],
+                        ['LV2', 'LVTK_PLUGIN'],
+                        [])
