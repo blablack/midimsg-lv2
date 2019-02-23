@@ -7,7 +7,7 @@ from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
 APPNAME = 'midimsg-lv2'
-VERSION = '0.0.4'
+VERSION = '0.0.5'
 
 # Mandatory variables
 top = '.'
